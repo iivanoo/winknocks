@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<options  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="optionsClient.xsd">
+
+	<captorFilter>tcp</captorFilter>
+	<allowUrgentScripts>false</allowUrgentScripts>
+	<device>\Device\NPF_{8FF86825-8C77-403A-9D5C-3D67CB4D1B8C}
+  Marvell Gigabit Ethernet Adapter (Microsoft's Packet Scheduler) </device>
+	<key>default</key>
+</options>

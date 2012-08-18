@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+<xs:element name="KnockSequence">
+	<xs:complexType>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="description" type="xs:string"/>
+			<xs:element name="smokePackets">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="min" type="xs:nonNegativeInteger"/>
+						<xs:element name="max" type="xs:nonNegativeInteger"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="maxFakePayload" type="xs:nonNegativeInteger"/>
+			<xs:element name="actions">
+				<xs:complexType>
+					<xs:choice maxOccurs="unbounded">
+						<xs:element name="openPort" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="portNumber">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="65535"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="exclusive" type="xs:boolean"/>
+									<xs:element name="wait" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="timeout" type="xs:nonNegativeInteger" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="closePort" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="portNumber">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="65535"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="wait" type="xs:nonNegativeInteger" minOccurs="0"/>
+									<xs:element name="timeout" type="xs:nonNegativeInteger" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="executeScript" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="script" type="xs:string"/>
+									<xs:element name="wait" type="xs:nonNegativeInteger" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			
+			<xs:element name="packets">
+				<xs:complexType>
+					<xs:choice maxOccurs="unbounded">
+						<xs:element name="UDPpacket" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="srcPortNumber">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="65535"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="dstPortNumber">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="65535"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="payload" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="TCPpacket" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="srcPortNumber">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="65535"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="dstPortNumber">
+										<xs:simpleType>
+											<xs:restriction base="xs:integer">
+												<xs:minInclusive value="1"/>
+												<xs:maxInclusive value="65535"/>
+											</xs:restriction>
+										</xs:simpleType>
+									</xs:element>
+									<xs:element name="sequenceNumber" type="xs:nonNegativeInteger"/>
+									<xs:element name="ackNumber" type="xs:nonNegativeInteger"/>
+									<xs:element name="windowSize" type="xs:nonNegativeInteger"/>
+									<xs:element name="flags">
+										<xs:complexType>
+											<xs:sequence>
+												<xs:element name="ack">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="0"/>
+															<xs:maxInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="syn">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="0"/>
+															<xs:maxInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="fin">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="0"/>
+															<xs:maxInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="push">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="0"/>
+															<xs:maxInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="reset">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="0"/>
+															<xs:maxInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+												<xs:element name="urgent">
+													<xs:simpleType>
+														<xs:restriction base="xs:integer">
+															<xs:minInclusive value="0"/>
+															<xs:maxInclusive value="1"/>
+														</xs:restriction>
+													</xs:simpleType>
+												</xs:element>
+											</xs:sequence>
+										</xs:complexType>
+									</xs:element>
+									<xs:element name="payload" type="xs:string" minOccurs="0"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+						<xs:element name="ICMPpacket" maxOccurs="unbounded" minOccurs="0">
+							<xs:complexType>
+								<xs:sequence>
+									<xs:element name="type" type="xs:nonNegativeInteger"/>
+									<xs:element name="code" type="xs:nonNegativeInteger"/>
+									<xs:element name="data" type="xs:string"/>
+								</xs:sequence>
+							</xs:complexType>
+						</xs:element>
+					</xs:choice>
+				</xs:complexType>
+			</xs:element>
+			
+		</xs:sequence>
+	</xs:complexType>
+</xs:element>
+
+
+
+</xs:schema>

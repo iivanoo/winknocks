@@ -1,0 +1,11 @@
+info=knockSequence
+token_keywords0=[<!--;>]:[<KnockSequence;>]:<?xml version="1.0" encoding="ISO-8859-1"?>:</KnockSequence>
+token_keywords1=<exclusive>:</exclusive>:<id>:</id>:<description>:</description>:<smokePackets>:</smokePackets>:<maxFakePayload>:</maxFakePayload>:<actions>:</actions>:<min>:</min>:<max>:</max>:<wait>:</wait>:<timeout>:</timeout>:<openPort>:</openPort>:<closePort>:</closePort>:<executeScript>:</executeScript>:<script>:</script>:<packets>:</packets>:<portNumber>:</portNumber>
+token_keywords2=<UDPpacket>:<srcPortNumber>:</srcPortNumber>:<dstPortNumber>:</dstPortNumber>:<payload>:</payload>:</UDPpacket>:<TCPpacket>:</TCPpacket>:<sequenceNumber>:</sequenceNumber>:<ackNumber>:</ackNumber>:<windowSize>:</windowSize>:<flags>:<ack>:</ack>:<syn>:</syn>:<fin>:</fin>:<push>:</push>:<reset>:</reset>:<urgent>:</urgent>:<reserved1>:</reserved1>:<reserved2>:</reserved2>:</flags>:<ICMPpacket>:<type>:</type>:<code>:</code>:<identifier>:</identifier>:<sequenceNumber>:</sequenceNumber>:<data>:</data>:</ICMPpacket>
+
+token_op="
+
+color_op=gray
+color_keywords0=gray
+color_keywords1=blue
+color_keywords2=100:100:200

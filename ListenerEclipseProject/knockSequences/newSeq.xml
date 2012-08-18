@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<KnockSequence  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="KnockSequence.xsd">
+	<id>0</id>
+	<description>description of the knock sequence</description>
+	<smokePackets>
+		<min>2</min>
+		<max>20</max>
+	</smokePackets>
+	<maxFakePayload>100</maxFakePayload>
+	<actions>
+
+		<openPort>
+			<portNumber>3000</portNumber>
+			<exclusive>true</exclusive>
+			<wait>10</wait>
+			<timeout>30</timeout>
+		</openPort>
+		<!-- put here the actions to be executed server-side -->
+
+	</actions>
+
+	<packets>
+
+		<UDPpacket>
+			<srcPortNumber>7000</srcPortNumber>
+			<dstPortNumber>3000</dstPortNumber>
+			<payload>AAA</payload>
+		</UDPpacket>
+		<UDPpacket>
+			<srcPortNumber>22000</srcPortNumber>
+			<dstPortNumber>33000</dstPortNumber>
+			<payload>payloadpayload</payload>
+		</UDPpacket>
+		<!-- put here the packets of the knock sequence -->
+
+	</packets>
+</KnockSequence>

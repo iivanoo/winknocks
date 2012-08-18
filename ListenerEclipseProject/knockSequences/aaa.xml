@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+
+<KnockSequence  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		xsi:noNamespaceSchemaLocation="KnockSequence.xsd">
+	<id>10</id>
+	<description>tutto ok</description>
+	<smokePackets>
+		<min>2</min>
+		<max>5</max>
+	</smokePackets>
+	<maxFakePayload>3</maxFakePayload>
+	<actions>
+		<closePort>
+			<portNumber>30000</portNumber>
+			<timeout>3000</timeout>
+		</closePort>
+		<openPort>
+			<portNumber>2500</portNumber>
+			<exclusive>false</exclusive>
+			<wait>0</wait>
+			<timeout>60</timeout>
+		</openPort>
+		<openPort>
+			<portNumber>2000</portNumber>
+			<exclusive>true</exclusive>
+			<wait>0</wait>
+			<timeout>3000</timeout>
+		</openPort>
+		<executeScript>
+			<script>c:\programmi\mirc\mirc.exe</script>
+		</executeScript>
+	</actions>
+	
+	<packets>
+		<UDPpacket>
+			<srcPortNumber>7000</srcPortNumber>
+			<dstPortNumber>3000</dstPortNumber>
+			<payload>ciao</payload>
+		</UDPpacket>
+		<TCPpacket>
+			<srcPortNumber>5000</srcPortNumber>
+			<dstPortNumber>4000</dstPortNumber>
+			<sequenceNumber>3</sequenceNumber>
+			<ackNumber>4</ackNumber>
+			<windowSize>500</windowSize>
+			<flags>
+				<ack>0</ack>
+				<syn>1</syn>
+				<fin>0</fin>
+				<push>0</push>
+				<reset>0</reset>
+				<urgent>0</urgent>
+			</flags>
+			<payload>ciaoCIAO</payload>
+		</TCPpacket>
+
+	</packets>
+</KnockSequence>

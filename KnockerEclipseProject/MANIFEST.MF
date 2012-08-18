@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Class-Path: lib/sc.jar lib/xercesImpl.jar lib/net.sourceforge.jpcap-0.01.16.jar;
+Created-By: Ivano Malavolta
+Main-Class: Launcher
+

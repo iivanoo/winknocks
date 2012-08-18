@@ -1,0 +1,40 @@
+START --- receiving knock sequence with id 8
+	Sat Aug 12 18:59:12 CEST 2006 --- received well-formed packet; it is the 1st packet of knock sequence with id 8
+REPLAY-ATTACK DETECTED --- Sat Aug 12 18:59:12 CEST 2006 --- replay attack detected from IP address 192.168.0.2
+	UDPpacket:
+		srcPortNumber: 7000
+		dstPortNumber:3000
+		payload: ciao
+REPLAY-ATTACK DETECTED --- Sat Aug 12 18:59:12 CEST 2006 --- replay attack detected from IP address 192.168.0.2
+	TCPpacket:
+		srcPortNumber: 8000
+		dstPortNumber: 9000
+		seqNumber: 1
+		ackNumber: 2
+		windowSize: 50
+		ACK: false
+		SYN: true
+		FIN: false
+		PUSH: false
+		RESET: false
+		URGENT: false
+		payload: payload
+REPLAY-ATTACK DETECTED --- Sat Aug 12 18:59:12 CEST 2006 --- replay attack detected from IP address 192.168.0.2
+	TCPpacket:
+		srcPortNumber: 5000
+		dstPortNumber: 4000
+		seqNumber: 3
+		ackNumber: 4
+		windowSize: 500
+		ACK: false
+		SYN: false
+		FIN: false
+		PUSH: true
+		RESET: false
+		URGENT: false
+		payload: ciao
+REPLAY-ATTACK DETECTED --- Sat Aug 12 18:59:12 CEST 2006 --- replay attack detected from IP address 192.168.0.2
+	ICMPpacket:
+		type: 8
+		code:1
+		data: ciaociaociao
